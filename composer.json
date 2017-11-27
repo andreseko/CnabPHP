@@ -1,5 +1,5 @@
 {
-    "name": "andreseko/cnab_php",
+    "name": "danielcembranelli/cnab_php",
     "type": "library",
     "description": "Projeto para criar arquivos de remessas e processar arquivos de retorno no formato CNAB",
     "keywords": ["boleto", "remessa", "retorno"],
@@ -12,6 +12,10 @@
         {
             "name": "Hermenegildo Marin Junior",
             "email": "hmarinjr@gmail.com"
+        },
+        {
+            "name": "Daniel Cembranelli",
+            "email": "daniel@cembranelli.com.br"
         }
     ],
     "require-dev": {
@@ -20,7 +24,7 @@
         "codeclimate/php-test-reporter": "dev-master"
     },
     "require": {
-        "andreseko/cnab_yaml": "1.3.*",
+        "danielcembranelli/cnab_yaml": "dev-master",
         "php": ">=5.3.0",
         "mustangostang/spyc": "0.5.*"
     },
