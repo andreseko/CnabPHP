@@ -9,9 +9,9 @@ class YamlLoad
     public $codigo_banco = null;
     public $formatPath;
     public $layoutVersao;
-    
+
     protected static $loaded = array();
-    
+
     public function __construct($codigo_banco, $layoutVersao = null)
     {
         $this->codigo_banco = $codigo_banco;
@@ -88,8 +88,8 @@ class YamlLoad
     {
         if (!isset(static::$loaded[$filename])) {
             if (!file_exists($filename)) {
-                return; 
-            } 
+                return;
+            }
             static::$loaded[$filename] = spyc_load_file($filename);
         }
         return static::$loaded[$filename];

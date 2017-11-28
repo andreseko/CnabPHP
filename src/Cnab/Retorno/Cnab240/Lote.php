@@ -43,11 +43,11 @@ class Lote
                 $this->lastDetalhe->segmento_w = $segmento;
             }
         } elseif ('A' == $codigo_segmento) {
-            $segmento = new SegmentoW($this->arquivo);
+            $segmento = new SegmentoA($this->arquivo);
             $segmento->loadFromString($linha);
-            if ($this->lastDetalhe) {
-                $this->lastDetalhe->segmento_a = $segmento;
-            }
+            $this->lastDetalhe = new Detalhe($this->arquivo, 'TED');
+            $this->detalhes[] = $this->lastDetalhe;
+            $this->lastDetalhe->segmento_a = $segmento;
         }
 
         return $segmento;
