@@ -402,6 +402,7 @@ class Arquivo implements \Cnab\Remessa\IArquivo
             $detalhe->segmento_a->valor_pagamento = $boleto['valor_pagamento'];
 //             $detalhe->segmento_a->valor_real = $boleto['valor_real'];
             $detalhe->segmento_a->informacao_2 = $boleto['informacao_2'];
+            $detalhe->segmento_a->tipo_movimento = $boleto['tipo_movimento'];
             if (@$boleto['sacado_cnpj']) {
                 $detalhe->segmento_a->numero_inscricao_favorecido = $this->prepareText($boleto['sacado_cnpj'], '.-/');
             } else {
