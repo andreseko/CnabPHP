@@ -2,7 +2,6 @@
 
 namespace Cnab\Remessa\Cnab240;
 
-use Cnab\Retorno\Cnab240\SegmentoZ;
 use \Cnab\Remessa\IArquivo;
 
 class Detalhe
