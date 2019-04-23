@@ -48,6 +48,12 @@ class Lote
             $this->lastDetalhe = new Detalhe($this->arquivo, 'TED');
             $this->detalhes[] = $this->lastDetalhe;
             $this->lastDetalhe->segmento_a = $segmento;
+        } elseif ('Z' == $codigo_segmento) {
+            $segmento = new SegmentoZ($this->arquivo);
+            $segmento->loadFromString($linha);
+            $this->lastDetalhe = new Detalhe($this->arquivo, 'TED');
+            $this->detalhes[] = $this->lastDetalhe;
+            $this->lastDetalhe->segmento_z = $segmento;
         }
 
         return $segmento;
