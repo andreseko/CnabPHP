@@ -408,6 +408,13 @@ class Arquivo implements \Cnab\Remessa\IArquivo
             } else {
                 $detalhe->segmento_a->numero_inscricao_favorecido = $this->prepareText($boleto['sacado_cpf'], '.-/');
             }
+
+            // SEGMENTO Z
+            $detalhe->segmento_z->codigo_banco = $this->headerArquivo->codigo_banco;
+            $detalhe->segmento_z->lote_servico = $this->headerLote->lote_servico;
+            $detalhe->segmento_z->numero_sequencial_lote = $boleto['numero_sequencial_lote'];
+            $detalhe->segmento_z->nosso_numero = $boleto['numero_documento'];
+            $detalhe->segmento_z->numero_documento_retorno = $boleto['numero_documento_retorno'];
         }
 
         $this->detalhes[] = $detalhe;

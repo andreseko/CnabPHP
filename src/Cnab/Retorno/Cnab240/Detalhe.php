@@ -2,7 +2,11 @@
 
 namespace Cnab\Retorno\Cnab240;
 
-class Detalhe extends \Cnab\Format\Linha implements \Cnab\Retorno\IDetalhe
+use \Cnab\Retorno\IArquivo;
+use \Cnab\Retorno\IDetalhe;
+use \Cnab\Format\Linha;
+
+class Detalhe extends Linha implements IDetalhe
 {
     public $codigo_banco;
     public $arquivo;
@@ -11,10 +15,11 @@ class Detalhe extends \Cnab\Format\Linha implements \Cnab\Retorno\IDetalhe
     public $segmento_u;
     public $segmento_w;
     public $segmento_a;
+    public $segmento_z;
 
     private $tipoRetorno;
 
-    public function __construct(\Cnab\Retorno\IArquivo $arquivo, $tipoRetorno = 'boleto')
+    public function __construct(IArquivo $arquivo, $tipoRetorno = 'boleto')
     {
         $this->codigo_banco = $arquivo->codigo_banco;
         $this->arquivo = $arquivo;

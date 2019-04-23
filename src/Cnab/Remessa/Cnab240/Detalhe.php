@@ -2,16 +2,21 @@
 
 namespace Cnab\Remessa\Cnab240;
 
+use Cnab\Retorno\Cnab240\SegmentoZ;
+use \Cnab\Remessa\IArquivo;
+
 class Detalhe
 {
     public $segmento_p = NULL;
     public $segmento_q = NULL;
     public $segmento_r = NULL;
     public $segmento_a = NULL;
+    public $segmento_z = NULL;
 
     public $last_error;
 
-    public function __construct(\Cnab\Remessa\IArquivo $arquivo, $tipo_remessa) {
+    public function __construct(IArquivo $arquivo, $tipo_remessa)
+    {
         if($tipo_remessa == 'boleto') {
             $this->segmento_p = new SegmentoP($arquivo);
             $this->segmento_q = new SegmentoQ($arquivo);
@@ -20,6 +25,7 @@ class Detalhe
 
         if($tipo_remessa == 'TED') {
             $this->segmento_a = new SegmentoA($arquivo);
+            $this->segmento_z = new SegmentoZ($arquivo);
         }
     }
 
@@ -55,6 +61,10 @@ class Detalhe
         }
         if(!is_null($this->segmento_a)) {
             $segmentos[] = $this->segmento_a;
+        }
+
+        if (!is_null($this->segmento_z)) {
+            $segmentos[] = $this->segmento_z;
         }
 
         return $segmentos;
