@@ -215,6 +215,16 @@ class Detalhe extends Linha implements IDetalhe
         return $nossoNumero;
     }
 
+    public function getAutenticacaoEletronica()
+    {
+        $autenticaEletronica = '';
+        if ($this->tipoRetorno == 'TED') {
+            $autenticaEletronica = $this->segmento_z->autenticacao_eletronica;
+        }
+
+        return $autenticaEletronica;
+    }
+
     /**
      * Retorna o objeto \DateTime da data de vencimento do boleto.
      *
