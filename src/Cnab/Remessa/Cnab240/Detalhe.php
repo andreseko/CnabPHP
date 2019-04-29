@@ -10,7 +10,7 @@ class Detalhe
     public $segmento_q = NULL;
     public $segmento_r = NULL;
     public $segmento_a = NULL;
-    public $segmento_z = NULL;
+//    public $segmento_z = NULL;
 
     public $last_error;
 
@@ -24,7 +24,7 @@ class Detalhe
 
         if($tipo_remessa == 'TED') {
             $this->segmento_a = new SegmentoA($arquivo);
-            $this->segmento_z = new SegmentoZ($arquivo);
+//            $this->segmento_z = new SegmentoZ($arquivo);
         }
     }
 
@@ -62,9 +62,9 @@ class Detalhe
             $segmentos[] = $this->segmento_a;
         }
 
-        if (!is_null($this->segmento_z)) {
-            $segmentos[] = $this->segmento_z;
-        }
+//        if (!is_null($this->segmento_z)) {
+//            $segmentos[] = $this->segmento_z;
+//        }
 
         return $segmentos;
     }
